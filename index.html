@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind Garden - Plant Your Thoughts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Mind Garden</h1>
+        <p>Plant your thoughts, watch them grow</p>
+      </div>
+
+      <form id="thoughtForm" class="thought-form">
+        <div class="form-group">
+          <label for="thoughtText">Plant a Thought</label>
+          <textarea
+            id="thoughtText"
+            placeholder="e.g., I am improving every day..."
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="moodSelect">Your Mood</label>
+          <select id="moodSelect">
+            <option value="calm">Calm</option>
+            <option value="joyful">Joyful</option>
+            <option value="grateful">Grateful</option>
+            <option value="hopeful">Hopeful</option>
+          </select>
+        </div>
+
+        <button type="submit" class="plant-button">🌱 Plant Thought</button>
+      </form>
+
+      <div class="sidebar-stats">
+        <h3>Garden Stats</h3>
+        <div class="stat-item">
+          <span class="stat-label">Plants</span>
+          <span class="stat-value" id="plantCount">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Moods</span>
+          <ul id="moodsList" class="moods-list"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Garden Area -->
+    <main class="garden-main">
+      <div id="gardenContainer" class="garden-container">
+        <!-- Plants rendered here by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state">
+        <div class="empty-content">
+          <div class="empty-emoji">🌾</div>
+          <h2>Your garden is empty</h2>
+          <p>Plant your first thought to begin growing</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Plant Modal -->
+  <div id="plantModal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      
+      <div class="modal-header">
+        <h2>Your Thought</h2>
+        <p id="plantAge" class="modal-age"></p>
+      </div>
+
+      <div class="modal-thought">
+        <p id="modalThoughtText"></p>
+      </div>
+
+      <div class="modal-info">
+        <div class="info-item">
+          <p class="info-label">Mood</p>
+          <p id="modalMood" class="info-value"></p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">Stage</p>
+          <p id="modalStage" class="info-value"></p>
+        </div>
+      </div>
+
+      <div id="plantDate" class="modal-date"></div>
+
+      <button id="removeButton" class="remove-button">🗑 Remove Plant</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
